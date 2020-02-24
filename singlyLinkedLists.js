@@ -67,21 +67,23 @@ class SinglyLinkedList {
     this.head = toBeShifted.next; //set new head as next Node
     this.length--; //decrement length
     if(this.length === 0) this.tail = null; // for 1 node case
+	return toBeShifted; //return shifted node
   }
-  return toBeShifted; //return shifted node
+  
 
   //method: unshift
   unshift(val) {
-    let newNode = new Node(val);
-    if(!this.head){ 
-      this.head = newNode;
-      this.tail = newNode;
-  } else {
-      newNode.next = this.head;
-      this.head = newNode;
-    }
-  this.length++;
-  return this;
+	let newNode = new Node(val);
+	if(!this.head){ 
+	this.head = newNode;
+	this.tail = newNode;
+	} else {
+	  newNode.next = this.head;
+	  this.head = newNode;
+	}
+	this.length++;
+	return this;
+  }
 
   //method: get
   get(idx) {
